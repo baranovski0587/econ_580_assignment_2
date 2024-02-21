@@ -1,4 +1,4 @@
-use ../DataRaw/cps_00013.dta, clear
+use "C:\Users\yegor\Desktop\Econ 580\Assignment 2\DataRaw\cps_00013.dta", clear
 d, f
 
 ************************************************************
@@ -23,7 +23,7 @@ if (`1' > 0 & `1' < 13) {
 ************************************************************
 
 sort year serial
-merge year serial using ../dta/cps_yngch.dta, uniqusing
+merge year serial using "C:\Users\yegor\Desktop\Econ 580\Assignment 2\DataRaw\cps_yngch.dta", uniqusing
 tab year _merge, missing
 assert _merge != 2 if year >= 2000
 drop _merge
@@ -268,7 +268,7 @@ if (`1' < 13) {
 		tab _merge
 		drop _merge
 
- 	save ../dta/cps_DD_FINAL.dta, replace
+ 	save "C:\Users\yegor\Desktop\Econ 580\Assignment 2\DataClean\cps_DD_FINAL.dta", replace
 
 	restore
 }
@@ -310,11 +310,11 @@ if (`1' < 13) {
 	tab _merge
 	drop _merge
 
- 	save ../DataClean/cps_DDD_FINAL.dta, replace
+ 	save "C:\Users\yegor\Desktop\Econ 580\Assignment 2\DataClean\cps_DDD_FINAL.dta", replace
 
 }
 
 
 if (`1' == 13) {
-  save ../DataClean/cps_MICRO_FINAL.dta, replace
+  save "C:\Users\yegor\Desktop\Econ 580\Assignment 2\DataClean\cps_MICRO_FINAL.dta", replace
 }
