@@ -4,17 +4,16 @@ version 12
 pause on
 graph set ps logo off
 
-global piece "all"  // This sets the piece for the entire script execution
-
 args piece
 if "`piece'" == "" {
 	disp "Please feed the program a set of regressions to run."
+	kablooey
 }
 
 capture log close
 set linesize 180
 set logtype text
-log using  ../log/run-cps-main-tables-piece-`piece'.log , replace
+log using  "C:\Users\yegor\Desktop\Econ 580\Assignment 2\log\run-cps-main-tables-piece-`piece'.log" , replace
 
 /* --------------------------------------
 
@@ -42,7 +41,7 @@ global Niterations = 20
 **
 *do fragment-prepare-cps-data.do 13
 *exit
-use ../dta/cps_MICRO_FINAL.dta, clear
+use "C:\Users\yegor\Desktop\Econ 580\Assignment 2\DataClean\cps_MICRO_FINAL.dta", clear
 keep if year >= 1998
 keep if age >= 21
 
